@@ -46,6 +46,25 @@ class CategoriaController{
         res.status(200).json(listaRetorno);
     }
 
+
+    async excluir(req,res){
+        try{
+            if(req.params.idCat != null){
+                let categoriaModel = new CategoriaModel();
+                let ok = categoriaModel.excluir(req.params.idCat);
+                if(ok){
+                    res.status(200).json({msg: "Categoria excluída com Sucesso"});
+                }else{
+                    res.status(500).json({msg: "Erro ao excluir"});
+                }
+            }else{
+                res.status(400).json({msg: "Parâmetros Inválidos"});
+            }
+        }catch(e){
+            res.status(500).json({msg: e.message});
+        }
+    }
+
     
 }
 

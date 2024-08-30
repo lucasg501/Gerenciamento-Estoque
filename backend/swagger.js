@@ -21,7 +21,7 @@ const doc = {
     components: {
         schemas:{
             categoria:new CategoriaModel(1, "Roupas"),
-            items: new ItemModel(10, "Camiseta DBZ", 25, 15, 80, 1)
+            itens: new ItemModel(10, "Camiseta DBZ", 25, 15, 80, 1)
         }
     }
 };

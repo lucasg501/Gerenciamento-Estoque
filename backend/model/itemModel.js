@@ -38,12 +38,12 @@ class itemModel{
 
     async gravar(){
         if(this.#idItem == 0){
-            let sql = `insert into item (nomeItem, quantidade, valorCompra, valorVenda, idCategoria) values ('?', '?', '?', '?', '?')`;
+            let sql = `insert into itens (nomeItem, quantidade, valorCompra, valorVenda, cat) values (?, ?, ?, ?, ?)`;
             let valores = [this.#nomeItem, this.#quantidade, this.#valorCompra, this.#valorVenda, this.#idCategoria];
             let ok = await banco.ExecutaComandoNonQuery(sql, valores);
             return ok;
         }else{
-            let sql = `update item set nomeItem = '?', quantidade = '?', valorCompra = '?', valorVenda = '?', idCategoria = '?' where idItem = ?`;
+            let sql = `update itens set nomeItem = ?, quantidade = ?, valorCompra = ?, valorVenda = ?, cat = ? where idItem = ?`;
             let valores = [this.#nomeItem, this.#quantidade, this.#valorCompra, this.#valorVenda, this.#idCategoria, this.#idItem];
             let ok = await banco.ExecutaComandoNonQuery(sql, valores);
             return ok;
@@ -51,7 +51,7 @@ class itemModel{
     }
 
     async listar(){
-        let sql = 'select * from item';
+        let sql = 'select * from itens';
         let rows = await banco.ExecutaComando(sql);
         let lista = [];
         for(let i=0; i<rows.length; i++){
@@ -61,7 +61,7 @@ class itemModel{
     }
 
     async excluir(idItem){
-        let sql = 'delete from item where idItem = ?';
+        let sql = 'delete from itens where idItem = ?';
         let valores = [idItem];
         let ok = await banco.ExecutaComandoNonQuery(sql, valores);
         return ok;

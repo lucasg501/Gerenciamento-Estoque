@@ -101,6 +101,97 @@
           }
         }
       }
+    },
+    "/item/listar": {
+      "get": {
+        "tags": [
+          "Itens"
+        ],
+        "summary": "Lista os itens cadastrados",
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/item/criar": {
+      "post": {
+        "tags": [
+          "Itens"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/itens"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/alterar": {
+      "put": {
+        "tags": [
+          "Itens"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/itens"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/excluir/{idItem}": {
+      "delete": {
+        "tags": [
+          "Itens"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "idItem",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codigo",
+            "description": "Codigo do item a ser excluido",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
     }
   },
   "components": {
@@ -109,7 +200,7 @@
         "type": "object",
         "properties": {}
       },
-      "items": {
+      "itens": {
         "type": "object",
         "properties": {}
       }

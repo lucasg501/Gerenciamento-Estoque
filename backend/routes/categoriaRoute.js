@@ -24,7 +24,7 @@ router.post('/criar', (req,res) =>{
             }
         } 
     */
-    ctrl.criar(req, res);
+    ctrl.gravar(req, res);
 });
 
 router.put('/alterar', (req,res) =>{
