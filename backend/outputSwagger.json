@@ -1,0 +1,126 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Gerenciamento Estoque",
+    "description": "API para gerenciamento de estoque",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000/"
+    }
+  ],
+  "paths": {
+    "/categoria/listar": {
+      "get": {
+        "tags": [
+          "Categoria"
+        ],
+        "summary": "Lista as categorias cadastradas",
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/categoria/criar": {
+      "post": {
+        "tags": [
+          "Categoria"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/categoria"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categoria/alterar": {
+      "put": {
+        "tags": [
+          "Categoria"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/categoria"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categoria/excluir/{idCat}": {
+      "delete": {
+        "tags": [
+          "Categoria"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "idCat",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "codigo",
+            "description": "Codigo da categoria a ser excluida",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "categoria": {
+        "type": "object",
+        "properties": {}
+      },
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "keyapi",
+        "description": "Enter JWT token"
+      }
+    }
+  }
+}
